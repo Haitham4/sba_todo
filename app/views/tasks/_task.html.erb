@@ -4,6 +4,7 @@
 <% else %>
 <tr id="<%= task.id %>">
   <td><%= link_to icon('check'), task_path(task, completed: true), remote: true, class: 'btn btn-success btn-xs', method: :put, data: { disable_with: "#{icon('refresh spin')}" } %></td>
+  <% task.completed_at = "Incomplete" %>
 <% end %>
   <td><%= task.title %></td>
   <td><%= task.description %></td>
