@@ -1,8 +1,8 @@
 <% if task.completed? %>
-<tr class="warning">
+<tr class="warning" id="<%= task.id %>">
   <td><%= link_to icon('times'), task_path(task, completed: true), class: 'btn btn-danger btn-xs', method: :put, data: { disable_with: "#{icon('refresh spin')}" } %></td>
 <% else %>
-<tr>
+<tr id="<%= task.id %>">
   <td><%= link_to icon('check'), task_path(task, completed: true), class: 'btn btn-success btn-xs', method: :put, data: { disable_with: "#{icon('refresh spin')}" } %></td>
 <% end %>
   <td><%= task.title %></td>
@@ -12,5 +12,5 @@
   <% else %>
     <td><i>Incomplete</i></td>
   <% end %>
-  <td><%= link_to icon('trash'), task, class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?', disable_with: "#{icon('refresh spin')}" } %></td>
+  <td><%= link_to icon('trash'), task, remote: true , class: 'btn btn-danger btn-xs', method: :delete, data: { confirm: 'Are you sure?', disable_with: "#{icon('refresh spin')}"}%></td>
 </tr>

@@ -1,6 +1,7 @@
 class TasksController < ApplicationController
   before_action :authenticate_user!
   before_action :set_task, only: [:show, :edit, :update, :destroy]
+  respond_to :html, :js
 
   # GET /tasks
   # GET /tasks.json
@@ -71,6 +72,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       format.html { redirect_to root_path, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
+      format.js
     end
   end
 
