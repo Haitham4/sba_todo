@@ -8,4 +8,12 @@
 
 <br>
 
-<%= link_to 'New Task', new_task_path %>
+<div class="panel panel-default">
+  <div id="new_link" class="panel-body">
+    <%= link_to 'New Task', new_task_path, remote: true %>
+  </div>
+
+  <div id="new_task" class="panel-body">
+
+  </div>
+</div>
