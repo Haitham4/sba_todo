@@ -1,9 +1,9 @@
 <% if task.completed? %>
 <tr class="warning" id="<%= task.id %>">
-  <td><%= link_to icon('times'), task_path(task, completed: true), class: 'btn btn-danger btn-xs', method: :put, data: { disable_with: "#{icon('refresh spin')}" } %></td>
+  <td><%= link_to icon('times'), task_path(task, completed: false), remote: true, class: 'btn btn-danger btn-xs', method: :put, data: { disable_with: "#{icon('refresh spin')}" } %></td>
 <% else %>
 <tr id="<%= task.id %>">
-  <td><%= link_to icon('check'), task_path(task, completed: true), class: 'btn btn-success btn-xs', method: :put, data: { disable_with: "#{icon('refresh spin')}" } %></td>
+  <td><%= link_to icon('check'), task_path(task, completed: true), remote: true, class: 'btn btn-success btn-xs', method: :put, data: { disable_with: "#{icon('refresh spin')}" } %></td>
 <% end %>
   <td><%= task.title %></td>
   <td><%= task.description %></td>
