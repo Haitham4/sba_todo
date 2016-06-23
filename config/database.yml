@@ -15,11 +15,12 @@ default: &default
   pool: 5
   username: <%= ENV['MYSQL_USERNAME'] %>
   password: <%= ENV['MYSQL_PASSWORD'] %>
-  socket: /tmp/mysql.sock
+  socket:  /var/run/mysqld/mysqld.sock
 
 development:
   <<: *default
   database: sba_todo_development
+  password: response
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
